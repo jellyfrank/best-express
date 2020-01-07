@@ -14,7 +14,8 @@ class TestExpress(unittest.TestCase):
 
     def test_get_express_info(self):
         res = self.best.express.get_express_info(["210323413836"])
-        print(res)
+        self.assertTrue(res['result'], res)
+
 
 if __name__ == "__main__":
     unittest.main()

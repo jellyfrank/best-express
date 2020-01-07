@@ -5,7 +5,7 @@
 # 百世快递接口
 
 from .comm import Comm
-
+import json
 
 class Express(Comm):
 
@@ -15,9 +15,9 @@ class Express(Comm):
         param mailnos: 运单号列表
         """
 
-        data = """{
+        data = {
             "mailNos": {
                 "mailNo": mailnos
             }
-        }"""
+        }
         return self.post(data=data, service_type="KD_TRACE_QUERY")

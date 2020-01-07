@@ -36,7 +36,7 @@ class Comm(object):
     def post(self, data, service_type):
         """请求方法"""
         url = TESTURL if self.sandbox else URL
-        data = self.get_header(data, service_type)
+        data = self.get_header(json.dumps(data), service_type)
         headers = {}
         headers["Content-Type"] = "application/x-www-form-urlencoded;charset=UTF-8"
         url = f'{url}?{"&".join(f"{k}={v}" for k,v in data.items())}'

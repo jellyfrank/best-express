@@ -1,0 +1,21 @@
+language: python
+notifications:
+  email: false
+sudo: false
+python:
+- 3.6
+install:
+- pip install -r requirements.txt
+script:
+- coverage run -m pytest
+deploy:
+  provider: pypi
+  user: blackcat
+  on:
+    python: 3.6
+    tags: true
+    branch: master
+  password:
+    secure: o2mAVEIubKL3V1Ubo4JQMmcFCG9c2DvRK/utbvbhOWGUk9CuHmU1SvYqjBGaCXuaDHT2nPwSBIqH/eS22lGiDbVAl7je8Oj/3Q/BUTKiBJOqh5dBKn02WSpWYAvhIY+LeRfi3vayHl+NTh23c2BedXJUhm+VT+26HXNm3mh+f5kGViT4t+3X17QDsFZxWCZUeCVqCH2ZifoWTKrSL/R9AF83LVS8YV6fWz5vJfYuWjIeem0ayGDEo0LAxHNMf5UH1yTrbPDFT8Qc5P5Ztbw1glDIiHJXaDlPJJGrO2rzm99n2qW5iJLDKVGDtpaUHBIVvNP2VSlw+p3zJeCx9dXbRUKNqlxjN8CiKTrjbHgz8e3BzX+Q3aZYVm/aKWl6rAoUc3tbP/7JyrPfbv2RFU6v2UV1qct2Hqn1Mc4wT0iSYkYEDlhEaILHLg2SjdjNBguK6GVY/+tjV+86hZWtl/3r61wPdYCA72wY7+a8RG001lBPA5WjM15qD7PUGD0ITbxQEAznHHOUzVj50uOUSdEARKUHshGz228yvj3dtEX7XlEsDjfWI7XkkY8TBLT625yIXOtpT5A282BAVqnyfXKWxItlAa6qMyMIJw2CYehZoukYWQYeO1izUJXWhk4E4mZLiyJ+sy0q9K0y8jr0ZDyNP6y+PRWbaAJTQ6j6D29nM9Y=
+after_success:
+  coveralls
