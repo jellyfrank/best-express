@@ -1,0 +1,6 @@
+requests
+coverage
+pytest
+coveralls
+pytz
+autils
